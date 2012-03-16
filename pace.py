@@ -23,21 +23,27 @@ def printSplits(distance, goal,splits):
 	print()
 	intervalPace = timePerSplit
 	for x in range(splits, distance+splits, splits):
-		print(x,"m:\t", formatToTime(intervalPace))	
+		if ((x%1600) == 0):
+			print(x,"m:\t",formatToTime(intervalPace),"\t\t",x,"m: \t",formatToTime(intervalPace),"\t\t",x,"m: \t",formatToTime(intervalPace))
+		elif ((x % 400) == 0):
+			print(x,"m:\t",formatToTime(intervalPace),"\t\t",x,"m: \t",formatToTime(intervalPace))
+		else:
+			print(x,"m:\t", formatToTime(intervalPace))	
 		intervalPace = intervalPace + timePerSplit
 
 	print()
-	print("Pace per",splits,"m: %.1f" % timePerSplit)
-	print("Pace per",2*splits,"m: %.1f" % (2*timePerSplit))
+	print("Pace per",splits,"m: " , formatToTime(timePerSplit))
+	print("Pace per",2*splits,"m: " , formatToTime(2*timePerSplit))
+	print("Pace per",8*splits,"m: " , formatToTime(8*timePerSplit))
 	print()
 
 def formatToTime(time):
 	minutes = int(time) // int(60)
-	seconds = int(time) % 60
+	seconds = int(time) % int(60)
 	secondsString = str(seconds)
 	minutesString = str(minutes)
 	if (len(secondsString) != 2):
-		secondsString = secondsString+"0" 
+		secondsString = "0"+secondsString 
 	return (minutesString + ":" + secondsString)
 
 
