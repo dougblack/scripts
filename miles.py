@@ -1,3 +1,9 @@
+# Command line milage log tool.
+
+# Usage:
+#	Add milage: python miles.py + [milage] [week]
+#	Print week: python miles.py = [week]
+
 import sys
 
 def processInput():

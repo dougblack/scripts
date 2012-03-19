@@ -45,5 +45,4 @@ def recordLocations():
 	f.close()	
 	o.close()
 
-
 recordLocations()
